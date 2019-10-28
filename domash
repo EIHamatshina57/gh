@@ -1,0 +1,55 @@
+import java.util.Arrays;
+ 
+public class QuickSort {
+ 
+    public static void quickSort(int[] array, int niz, int vis) {
+        if (array.length == 0)
+            return;//завершить выполнение если длина массива равна 0
+ 
+        if (low >= high)
+            return;//завершить выполнение если уже нечего делить
+ 
+        
+        int mid = niz + (vis - niz) / 2;
+        int opora = array[mid];
+ 
+        
+        int i = niz, j = vis;
+        while (i <= j) {
+            while (array[i] < opora) {
+                i++;
+            }
+ 
+            while (array[j] > opora) {
+                j--;
+            }
+ 
+            if (i <= j) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
+            }
+        }
+ 
+        
+        if (niz < j)
+            quickSort(array, niz, j);
+ 
+        if (vis > i)
+            quickSort(array, i, vis);
+    }
+    public static void main(String[] args) {
+        int[] x = { 6, 2, 4, 9, 3, 8, 7, 1, 5 };
+        System.out.println("Было");
+        System.out.println(Arrays.toString(x));
+ 
+        int niz = 0;
+        int vis = x.length - 1;
+ 
+        quickSort(x, niz, vis);
+        System.out.println("Стало");
+        System.out.println(Arrays.toString(x));
+    }
+}
