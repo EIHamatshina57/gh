@@ -1,0 +1,88 @@
+package com.company;
+public class Polynom<result> {
+
+    double[] coef;
+
+    public Polynom(double[] coef) {
+        this.coef = coef;
+    }
+
+    @Override
+    public String toString() { //учесть всевозможные варианты( убрать 0, -1, +1) через х. + сложить 2 полинома(поэлементно). Для простоты сложить полиномы одинаковой степени!!! СДЕЛАТЬ ОБЯЗАТЕЛЬНО!!!
+        String result = "";
+        if (coef[0] == 0) {
+            if (coef[1] == 1){
+                result = "x";
+            }
+            if (coef[1] == 0){
+            result = String.valueOf(0);
+            }
+            else{
+                result = coef[1] + "x";
+            }
+            for (int i = 2; i < coef.length; i++) {
+                if (coef[i] == 0) {
+                    if (coef[i - 1] < 0) {
+                        result = "" + (coef[i]) + "x^" + i + " " + result;
+                    } else {
+                        result = "" + coef[i] + "x^" + i + " + " + result;
+                    }
+                }
+                if (coef[i] == 1){
+                    if (coef[i - 1] < 0) {
+                        result = "x^" + i + " " + result;
+                    } else {
+                        result = "x^" + i + " + " + result;
+                    }
+                }
+                else {
+                    if (coef[i - 1] < 0) {
+                        result = "" + (coef[i]) + "x^" + i + " " + result;
+                    } else {
+                        result = "" + coef[i] + "x^" + i + " + " + result;
+                    }
+
+                }
+            }
+
+        }
+        else {
+            if (coef[1] == 0) {
+                result = String.valueOf(coef[0]);
+            } else {
+                result = coef[1] + "x" + " " + result;
+            }
+            for (int i = 2; i < coef.length; i++) {
+                if (coef[i] == 0) {
+                    if (coef[i - 1] < 0) {
+                        result = "" + (coef[i]) + "x^" + i + " " + result;
+                    } else {
+                        result = "" + coef[i] + "x^" + i + " + " + result;
+                    }
+                }
+                if (coef[i] == 1){
+                    if (coef[i - 1] < 0) {
+                        result = "x^" + i + " " + result;
+                    } else {
+                        result = "x^" + i + " + " + result;
+                    }
+                }
+                else {
+                    if (coef[i - 1] < 0) {
+                        result = "" + (coef[i]) + "x^" + i + " " + result;
+                    } else {
+                        result = "" + coef[i] + "x^" + i + " + " + result;
+                    }
+
+                }
+            }
+
+        }
+
+        return result;
+
+    }
+
+
+
+}
